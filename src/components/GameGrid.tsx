@@ -6,7 +6,7 @@ import GameCard from './GameCard';
 import SkeletonGameCard from './SkeletonGameCard';
 
 const GameGrid = (): JSX.Element => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
 
   return (
     <>
@@ -22,8 +22,8 @@ const GameGrid = (): JSX.Element => {
         {isLoading && [...Array(12).keys()].map((_, i) => {
           return <SkeletonGameCard key={i} />;
         })}
-        {!isLoading && games.map((game) => {
-          return <GameCard key={game.id} game={game} />
+        {!isLoading && data.map((item) => {
+          return <GameCard key={item.id} game={item} />
         })}
       </SimpleGrid>
     </>
