@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 import { CanceledError } from 'axios';
 
-import { Game, ApiRes } from '../models/game';
+import { ApiRes, Genre } from '../models/game';
 import apiClient from '../services/api-client';
 
-function useGames(): { games: Game[]; error: string; isLoading:boolean; } {
-  const [games, setGames] = useState<Game[]>([]);
+function useGenres(): { genres: Genre[]; error: string; isLoading:boolean; } {
+  const [genres, setGenres] = useState<Genre[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,9 +15,9 @@ function useGames(): { games: Game[]; error: string; isLoading:boolean; } {
 
     setIsLoading(true);
 
-    apiClient.get<ApiRes<Game>>('/games', { signal: controller.signal })
+    apiClient.get<ApiRes<Genre>>('/genres', { signal: controller.signal })
       .then(({ data }) => {
-        setGames(data.results);
+        setGenres(data.results);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -30,7 +30,7 @@ function useGames(): { games: Game[]; error: string; isLoading:boolean; } {
     return () => controller.abort();
   }, []);
 
-  return { games, error, isLoading };
+  return { genres, error, isLoading };
 }
 
-export default useGames;
+export default useGenres;

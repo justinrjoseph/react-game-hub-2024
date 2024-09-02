@@ -6,13 +6,13 @@ import { BsGlobe } from 'react-icons/bs';
 
 import { HStack, Icon } from '@chakra-ui/react';
 
-import { Platform, Slug } from '../models/game';
+import { Platform, PlatformSlug } from '../models/game';
 
 interface Props {
   platforms: Platform[];
 }
 
-const icons = new Map<Slug, IconType>([
+const icons = new Map<PlatformSlug, IconType>([
   ['pc', FaWindows],
   ['nintendo', SiNintendo],
   ['playstation', FaPlaystation],

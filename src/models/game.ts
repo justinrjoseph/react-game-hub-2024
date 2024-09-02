@@ -1,4 +1,11 @@
-export type Name = 'PC' |
+interface BaseGame {
+  id: number;
+  name: string;
+}
+
+export type Genre = BaseGame;
+
+export type PlatformName = 'PC' |
 'Nintendo' |
 'PlayStation' |
 'Xbox' |
@@ -8,7 +15,7 @@ export type Name = 'PC' |
 'Android' |
 'Web';
 
-export type Slug = 'pc' |
+export type PlatformSlug = 'pc' |
 'nintendo' |
 'playstation' |
 'xbox' |
@@ -20,19 +27,17 @@ export type Slug = 'pc' |
 
 export interface Platform {
   id: number;
-  name: Name;
-  slug: Slug;
+  name: PlatformName;
+  slug: PlatformSlug;
 }
 
-export interface Game {
-  id: number;
-  name: string;
+export interface Game extends BaseGame {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
 }
 
-export interface GamesRes {
+export interface ApiRes<T> {
   count: number;
-  results: Game[];
+  results: T[];
 };
