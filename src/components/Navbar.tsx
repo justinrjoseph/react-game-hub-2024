@@ -1,13 +1,16 @@
-import { HStack, Image, Text } from '@chakra-ui/react'
+import { HStack, Image } from '@chakra-ui/react';
+
 import logo from '../assets/logo.webp';
 
-const Navbar = () => {
+import LightModeSwitch from './LightModeSwitch';
+
+const Navbar = ():JSX.Element => {
   return (
-    <HStack>
+    <HStack justifyContent='space-between' padding='.625rem'>
       <Image src={logo} boxSize={'3.75rem'} />
-      <Text>Navbar</Text>
+      <LightModeSwitch />
     </HStack>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
