@@ -8,13 +8,17 @@ function App(): JSX.Element {
   return <Grid templateAreas={{
     base: `'nav' 'main'`, // mobile
     lg: `'nav nav' 'aside main'`
+  }}
+  templateColumns={{
+    base: '1fr',
+    lg: '12.5rem 1fr'
   }}>
     <GridItem area='nav' bg='coral'>
       <Navbar />
     </GridItem>
 
     <Show above='lg'>
-      <GridItem area='aside'>
+      <GridItem area='aside' paddingInline='.75rem'>
         <GenreList />
       </GridItem>
     </Show>

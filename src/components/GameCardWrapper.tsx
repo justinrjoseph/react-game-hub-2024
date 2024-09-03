@@ -7,7 +7,7 @@ interface Props {
 
 const GameCardWrapper = ({ children }:Props): JSX.Element => {
   return (
-    <Box inlineSize='28.375rem' borderRadius={10} overflow='hidden'>
+    <Box borderRadius={10} overflow='hidden'>
       {children}
     </Box>
   );

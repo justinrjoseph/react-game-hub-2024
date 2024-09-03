@@ -3,7 +3,9 @@ interface BaseGame {
   name: string;
 }
 
-export type Genre = BaseGame;
+export interface Genre extends BaseGame {
+  image_background: `https://media.rawg.io/media/games/${string}/${string}.jpg`
+}
 
 export type PlatformName = 'PC' |
 'Nintendo' |
