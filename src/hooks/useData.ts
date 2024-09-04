@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { CanceledError } from 'axios';
+import { AxiosRequestConfig, CanceledError } from 'axios';
 
 import { ApiRes } from '../models/game';
 import apiClient from '../services/api-client';
@@ -11,7 +11,12 @@ export interface Payload<T> {
   isLoading:boolean;
 }
 
-function useData<T>(endpoint:'games' | 'genres'): Payload<T> {
+function useData<T>(
+  { endpoint, reqConfig = {}, deps }: {
+  endpoint: 'games' | 'genres';
+  reqConfig?:AxiosRequestConfig;
+  deps?:any[]
+}): Payload<T> {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +26,10 @@ function useData<T>(endpoint:'games' | 'genres'): Payload<T> {
 
     setIsLoading(true);
 
-    apiClient.get<ApiRes<T>>(`/${endpoint}`, { signal: controller.signal })
+    apiClient.get<ApiRes<T>>(`/${endpoint}`, {
+      signal: controller.signal,
+      ...reqConfig
+    })
       .then(({ data }) => {
         setData(data.results);
         setIsLoading(false);
@@ -34,7 +42,7 @@ function useData<T>(endpoint:'games' | 'genres'): Payload<T> {
       });
 
     return () => controller.abort();
-  }, []);
+  }, deps || []);
 
   return { data, error, isLoading };
 }

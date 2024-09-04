@@ -27,8 +27,8 @@ const icons = new Map<PlatformSlug, IconType>([
 const PlatformIcons = ({ platforms }: Props): JSX.Element => {
   return (
     <HStack marginBlock={1}>
-      {platforms.map(({ slug }) => {
-        return <Icon as={icons.get(slug)} color='gray.500' />;
+      {platforms.map(({ id, slug }) => {
+        return <Icon key={id} as={icons.get(slug)} color='gray.500' />;
       })}
     </HStack>
   );
