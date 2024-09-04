@@ -6,10 +6,11 @@ import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
 import Genres from './components/Genres';
 import Platforms from './components/Platforms';
-import { Genre } from './models/game';
+import { Genre, Platform } from './models/game';
 
 function App(): JSX.Element {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 
   return <Grid templateAreas={{
     base: `'nav' 'main'`, // mobile
@@ -31,8 +32,10 @@ function App(): JSX.Element {
     </Show>
 
     <GridItem area='main'>
-      <Platforms />
-      <GameGrid selectedGenre={selectedGenre} />
+      <Platforms selection={selectedPlatform}
+        select={(platform) => setSelectedPlatform(platform)} />
+      <GameGrid selectedGenre={selectedGenre}
+        selectedPlatform={selectedPlatform} />
     </GridItem>
   </Grid>;
 }
