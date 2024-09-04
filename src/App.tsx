@@ -5,6 +5,7 @@ import { Grid, GridItem, Show } from '@chakra-ui/react'
 import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
 import Genres from './components/Genres';
+import Platforms from './components/Platforms';
 import { Genre } from './models/game';
 
 function App(): JSX.Element {
@@ -18,7 +19,7 @@ function App(): JSX.Element {
     base: '1fr',
     lg: '12.5rem 1fr'
   }}>
-    <GridItem area='nav' bg='coral'>
+    <GridItem area='nav' bg='coral' marginBlockEnd='1.25rem'>
       <Navbar />
     </GridItem>
 
@@ -30,6 +31,7 @@ function App(): JSX.Element {
     </Show>
 
     <GridItem area='main'>
+      <Platforms />
       <GameGrid selectedGenre={selectedGenre} />
     </GridItem>
   </Grid>;

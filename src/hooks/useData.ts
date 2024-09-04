@@ -13,7 +13,7 @@ export interface Payload<T> {
 
 function useData<T>(
   { endpoint, reqConfig = {}, deps }: {
-  endpoint: 'games' | 'genres';
+  endpoint: 'games' | 'genres' | 'platforms/lists/parents';
   reqConfig?:AxiosRequestConfig;
   deps?:any[]
 }): Payload<T> {
