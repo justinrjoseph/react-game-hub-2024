@@ -22,7 +22,8 @@ const GameGrid = ({ gameQuery }: Props): JSX.Element => {
         lg: 3,
         xl: 4
       }}
-        padding='.625rem'
+        marginBlockStart='2rem'
+        marginInlineEnd='.625rem'
         spacing='.625rem'>
         {isLoading && [...Array(12).keys()].map((_, i) => {
           return <SkeletonGameCard key={i} />;
