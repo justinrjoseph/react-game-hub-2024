@@ -4,7 +4,7 @@ import { Grid, GridItem, Show } from '@chakra-ui/react'
 
 import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
-import GenreList from './components/GenreList';
+import Genres from './components/Genres';
 import { Genre } from './models/game';
 
 function App(): JSX.Element {
@@ -24,7 +24,8 @@ function App(): JSX.Element {
 
     <Show above='lg'>
       <GridItem area='aside' paddingInline='.75rem'>
-        <GenreList select={(genre) => setSelectedGenre(genre)} />
+        <Genres selection={selectedGenre}
+          select={(genre) => setSelectedGenre(genre)} />
       </GridItem>
     </Show>
 

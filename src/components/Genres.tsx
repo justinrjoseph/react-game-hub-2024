@@ -5,10 +5,11 @@ import { Genre } from '../models/game';
 import createCroppedImageUrl from '../services/image-url';
 
 interface Props {
-  select: (genre: Genre) => void
+  select: (genre: Genre) => void,
+  selection: Genre | null;
 }
 
-const GenreList = ({ select }: Props): JSX.Element | null => {
+const Genres = ({ select, selection }: Props): JSX.Element | null => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -24,7 +25,9 @@ const GenreList = ({ select }: Props): JSX.Element | null => {
               <Image boxSize='2rem'
                 borderRadius={8}
                 src={createCroppedImageUrl(item.image_background)} />
-              <Link fontSize='lg' href='#' onClick={() => select(item)}>
+              <Link href='#' fontSize='lg'
+                fontWeight={selection?.id === item.id ? 'bold' : ''}
+                onClick={() => select(item)}>
                 {item.name}
               </Link>
             </HStack>
@@ -34,4 +37,4 @@ const GenreList = ({ select }: Props): JSX.Element | null => {
   );
 }
 
-export default GenreList;
+export default Genres;
