@@ -1,5 +1,9 @@
-function createCroppedImageUrl(url:string):`${string}crop/600/400/${string}` | '' {
-  if (!url) return '';
+import imageUnavailable from '../assets/no-image-placeholder-6f3882e0.webp';
+
+type ImageUrl = `${string}crop/600/400/${string}` | string;
+
+function createCroppedImageUrl(url:string): ImageUrl {
+  if (!url) return imageUnavailable;
 
   const target = 'media/';
 
