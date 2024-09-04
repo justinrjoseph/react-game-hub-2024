@@ -6,10 +6,10 @@ import { Platform } from '../models/game';
 
 interface Props {
   select: (platform: Platform) => void;
-  selection: Platform | null;
+  choice: Platform | null;
 }
 
-const Platforms = ({ select, selection }: Props): JSX.Element | null => {
+const Platforms = ({ select, choice }: Props): JSX.Element | null => {
   const { data, error } = usePlatforms();
 
   if (error) return null;
@@ -17,7 +17,7 @@ const Platforms = ({ select, selection }: Props): JSX.Element | null => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selection?.name || 'Platforms'}
+        {choice?.name || 'Platforms'}
       </MenuButton>
       <MenuList>
         {data.map((item) => {

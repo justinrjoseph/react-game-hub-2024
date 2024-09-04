@@ -1,4 +1,6 @@
-function createCroppedImageUrl(url:string):`${string}crop/600/400/${string}` {
+function createCroppedImageUrl(url:string):`${string}crop/600/400/${string}` | '' {
+  if (!url) return '';
+
   const target = 'media/';
 
   const idx = url.indexOf(target) + target.length;

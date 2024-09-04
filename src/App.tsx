@@ -26,16 +26,17 @@ function App(): JSX.Element {
 
     <Show above='lg'>
       <GridItem area='aside' paddingInline='.75rem'>
-        <Genres selection={gameQuery.genre}
+        <Genres choice={gameQuery.genre}
           select={(genre) => setGameQuery({ ...gameQuery, genre })} />
       </GridItem>
     </Show>
 
     <GridItem area='main'>
       <HStack spacing={5}>
-        <Platforms selection={gameQuery.platform}
+        <Platforms choice={gameQuery.platform}
           select={(platform) => setGameQuery({ ...gameQuery, platform })} />
-        <SortBy selection={null} />
+        <SortBy choice={gameQuery.ordering}
+          select={(ordering) => setGameQuery({ ...gameQuery, ordering })} />
       </HStack>
 
       <GameGrid gameQuery={gameQuery} />

@@ -8,7 +8,8 @@ export default (gameQuery: GameQuery): Payload<Game> =>
     reqConfig: {
       params: {
         genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.ordering
       }
     },
     deps: [gameQuery]

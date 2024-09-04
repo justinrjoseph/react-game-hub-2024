@@ -1,32 +1,28 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
+import { OrderingValue, orderings } from '../models/game';
 
 interface Props {
-  selection: any;
+  select: (value: OrderingValue) => void;
+  choice: OrderingValue;
 }
 
-const SortBy = ({ selection }: Props): JSX.Element => {
-  // const {} = useSort();
+const SortBy = ({ choice, select }: Props): JSX.Element => {
+  const currentSort = orderings[choice];
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selection?.name || 'Order by'}
+        Order by{currentSort && `: ${currentSort}`}
       </MenuButton>
       <MenuList>
-        <MenuItem>Relevance</MenuItem>
-        <MenuItem>Date added</MenuItem>
-        <MenuItem>Name</MenuItem>
-        <MenuItem>Release date</MenuItem>
-        <MenuItem>Popularity</MenuItem>
-        <MenuItem>Average rating</MenuItem>
-        {/* {data.map((item) => {
+        {(Object.keys(orderings) as OrderingValue[]).map((key) => {
           return (
-          <MenuItem key={item.id} onClick={() => select(item)}>
-            {item.name}
-          </MenuItem>
+            <MenuItem key={key} onClick={() => select(key)}>
+              {orderings[key]}
+            </MenuItem>
           );
-        })} */}
+        })}
       </MenuList>
     </Menu>
   );
