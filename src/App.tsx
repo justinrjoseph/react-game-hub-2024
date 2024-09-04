@@ -20,7 +20,7 @@ function App(): JSX.Element {
     base: '1fr',
     lg: '12.5rem 1fr'
   }}>
-    <GridItem area='nav' bg='coral' marginBlockEnd='1.25rem'>
+    <GridItem area='nav' marginBlockEnd='1.25rem'>
       <Navbar />
     </GridItem>
 
@@ -32,7 +32,7 @@ function App(): JSX.Element {
     </Show>
 
     <GridItem area='main'>
-      <HStack spacing={5}>
+      <HStack spacing={5} paddingInline='.625rem'>
         <Platforms choice={gameQuery.platform}
           select={(platform) => setGameQuery({ ...gameQuery, platform })} />
         <SortBy choice={gameQuery.ordering}
