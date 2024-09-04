@@ -6,11 +6,12 @@ import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
 import Genres from './components/Genres';
 import Platforms from './components/Platforms';
-import { Genre, Platform } from './models/game';
+import { GameQuery, Genre, Platform } from './models/game';
 
 function App(): JSX.Element {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  /* const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null); */
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return <Grid templateAreas={{
     base: `'nav' 'main'`, // mobile
@@ -26,16 +27,15 @@ function App(): JSX.Element {
 
     <Show above='lg'>
       <GridItem area='aside' paddingInline='.75rem'>
-        <Genres selection={selectedGenre}
-          select={(genre) => setSelectedGenre(genre)} />
+        <Genres selection={gameQuery.genre}
+          select={(genre) => setGameQuery({ ...gameQuery, genre })} />
       </GridItem>
     </Show>
 
     <GridItem area='main'>
-      <Platforms selection={selectedPlatform}
-        select={(platform) => setSelectedPlatform(platform)} />
-      <GameGrid selectedGenre={selectedGenre}
-        selectedPlatform={selectedPlatform} />
+      <Platforms selection={gameQuery.platform}
+        select={(platform) => setGameQuery({ ...gameQuery, platform })} />
+      <GameGrid gameQuery={gameQuery} />
     </GridItem>
   </Grid>;
 }

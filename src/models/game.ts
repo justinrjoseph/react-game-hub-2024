@@ -39,6 +39,11 @@ export interface Game extends BaseGame {
   metacritic: number;
 }
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 export interface ApiRes<T> {
   count: number;
   results: T[];
