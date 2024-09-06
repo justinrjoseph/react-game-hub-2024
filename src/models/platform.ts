@@ -18,8 +18,18 @@ export type PlatformSlug = 'pc' |
 'android' |
 'web';
 
-export interface Platform {
+export interface BasePlatform {
   id: number;
   name: PlatformName;
   slug: PlatformSlug;
+}
+
+export interface Platform extends BasePlatform {
+  platforms: (BasePlatform & {
+    games_count: number,
+    image_background: `https://media.rawg.io/media/${'screenshots' | 'games'}/${string}.${'jpg' | 'jpeg'}`,
+    image: string | null,
+    year_start: number | null,
+    year_end: number | null
+  })[];
 }

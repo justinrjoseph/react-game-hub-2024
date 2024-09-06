@@ -1,7 +1,6 @@
-import { Platform } from '../models/game';
+import platforms from '../assets/data/platforms';
+import { Platform } from '../models/platform';
 
-import useData, { Payload } from './useData';
+import { Payload } from './useData';
 
-export default (): Payload<Platform> => useData<Platform>({
-  endpoint: 'platforms/lists/parents'
-});
+export default (): Payload<Platform> => ({ data: platforms, isLoading: false, error: null });
