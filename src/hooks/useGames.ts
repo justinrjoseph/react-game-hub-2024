@@ -9,7 +9,7 @@ export default (gameQuery: GameQuery): Payload<Game> =>
       params: {
         search: gameQuery.search,
         genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
+        parent_platforms: gameQuery.platform?.id,
         ordering: gameQuery.ordering
       }
     },
