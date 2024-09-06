@@ -13,25 +13,24 @@ interface Props {
 const GameGrid = ({ gameQuery }: Props): JSX.Element => {
   const { data, error, isLoading } = useGames(gameQuery);
 
+  if (error) return <Text>{error}</Text>;
+
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <SimpleGrid columns={{
-        sm: 1,
-        md: 2,
-        lg: 3,
-        xl: 4
-      }}
-        marginBlockStart='2rem'
-        spacing={6}>
-        {isLoading && [...Array(12).keys()].map((_, i) => {
-          return <SkeletonGameCard key={i} />;
-        })}
-        {!isLoading && data.map((item) => {
-          return <GameCard key={item.id} game={item} />
-        })}
-      </SimpleGrid>
-    </>
+    <SimpleGrid columns={{
+      sm: 1,
+      md: 2,
+      lg: 3,
+      xl: 4
+    }}
+      marginBlockStart='2rem'
+      spacing={6}>
+      {isLoading && [...Array(12).keys()].map((_, i) => {
+        return <SkeletonGameCard key={i} />;
+      })}
+      {!isLoading && data.map((item) => {
+        return <GameCard key={item.id} game={item} />
+      })}
+    </SimpleGrid>
   );
 }
 
