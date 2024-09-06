@@ -1,20 +1,24 @@
 import { OrderingValue } from './ordering';
 import { Platform } from './platform';
 
-interface BaseGame {
+interface BaseModel {
   id: number;
   name: string;
+  slug: string;
 }
 
-export interface Genre extends BaseGame {
-  image_background: `https://media.rawg.io/media/games/${string}/${string}.jpg`
+export interface Game extends BaseModel {
+  background_image?: string;
+  parent_platforms?: { platform: Platform }[];
+  metacritic?: number;
+  rating_top?: number;
+  added: number;
 }
 
-export interface Game extends BaseGame {
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-  rating_top: number;
+export interface Genre extends BaseModel {
+  image_background: `https://media.rawg.io/media/games/${string}/${string}.jpg`;
+  games_count: number;
+  games: Game[];
 }
 
 export interface GameQuery {

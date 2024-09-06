@@ -6,9 +6,9 @@ import { ApiRes } from '../models/game';
 import apiClient from '../services/api-client';
 
 export interface Payload<T> {
+  isLoading: boolean;
   data: T[];
-  error: string;
-  isLoading:boolean;
+  error: string | null;
 }
 
 function useData<T>(
