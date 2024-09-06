@@ -8,7 +8,7 @@ interface Props {
 
 const DynamicHeading = ({ gameQuery }: Props): JSX.Element => {
   return (
-    <Heading as='h1' fontSize='5xl' marginBlockEnd={5}>
+    <Heading as='h1' fontSize='5xl' blockSize='2.375rem' lineHeight='2rem' marginBlockEnd={5}>
       {`${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games`}
     </Heading>
   );
