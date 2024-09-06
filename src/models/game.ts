@@ -8,17 +8,15 @@ interface BaseModel {
 }
 
 export interface Game extends BaseModel {
-  background_image?: string;
-  parent_platforms?: { platform: Platform }[];
-  metacritic?: number;
-  rating_top?: number;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
+  rating_top: number;
   added: number;
 }
 
 export interface Genre extends BaseModel {
   image_background: `https://media.rawg.io/media/games/${string}/${string}.jpg`;
-  games_count: number;
-  games: Game[];
 }
 
 export interface GameQuery {
