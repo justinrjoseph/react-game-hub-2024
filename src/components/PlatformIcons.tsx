@@ -6,7 +6,7 @@ import { BsGlobe } from 'react-icons/bs';
 
 import { HStack, Icon } from '@chakra-ui/react';
 
-import { Platform, PlatformSlug } from '../models/game';
+import { Platform, PlatformSlug } from '../models/platform';
 
 interface Props {
   platforms: Platform[];

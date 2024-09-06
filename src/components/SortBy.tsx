@@ -1,6 +1,7 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import { OrderingValue, orderings } from '../models/game';
+
+import { OrderingValue, orderings } from '../models/ordering';
 
 interface Props {
   select: (value: OrderingValue) => void;

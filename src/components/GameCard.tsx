@@ -4,6 +4,7 @@ import { Game } from '../models/game';
 import createCroppedImageUrl from '../services/image-url';
 
 import AverageScore from './AverageScore';
+import Emoji from './Emoji';
 import GameCardWrapper from './GameCardWrapper';
 import PlatformIcons from './PlatformIcons';
 
@@ -22,7 +23,10 @@ const GameCard = ({ game }: Props): JSX.Element => {
               .map((item) => item.platform)} />
             <AverageScore score={game.metacritic} />
           </HStack>
-          <Heading fontSize='2xl'>{game.name}</Heading>
+          <Heading fontSize='2xl'>
+            {game.name}
+            <Emoji rating={game.rating_top} />
+          </Heading>
         </CardBody>
       </Card>
     </GameCardWrapper>
