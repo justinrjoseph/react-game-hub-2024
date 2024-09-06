@@ -17,12 +17,12 @@ const GameCard = ({ game }: Props): JSX.Element => {
       <Card>
         <Image src={createCroppedImageUrl(game.background_image)} />
         <CardBody>
-          <Heading fontSize='2xl'>{game.name}</Heading>
-          <HStack justifyContent='space-between'>
+          <HStack justifyContent='space-between' marginBlockEnd='.625rem'>
             <PlatformIcons platforms={game.parent_platforms
               .map((item) => item.platform)} />
             <AverageScore score={game.metacritic} />
           </HStack>
+          <Heading fontSize='2xl'>{game.name}</Heading>
         </CardBody>
       </Card>
     </GameCardWrapper>
