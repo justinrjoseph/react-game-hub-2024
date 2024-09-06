@@ -8,6 +8,7 @@ import Genres from './components/Genres';
 import Platforms from './components/Platforms';
 import SortBy from './components/SortBy';
 import { GameQuery } from './models/game';
+import DynamicHeading from './components/Heading';
 
 function App(): JSX.Element {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -25,14 +26,15 @@ function App(): JSX.Element {
     </GridItem>
 
     <Show above='lg'>
-      <GridItem area='aside' paddingInline='.75rem'>
+      <GridItem area='aside' marginInline='.75rem'>
         <Genres choice={gameQuery.genre}
           select={(genre) => setGameQuery({ ...gameQuery, genre })} />
       </GridItem>
     </Show>
 
-    <GridItem area='main'>
-      <HStack spacing={5} paddingInline='.625rem'>
+    <GridItem area='main' marginInlineEnd='.75rem'>
+      <DynamicHeading gameQuery={gameQuery} />
+      <HStack spacing={5}>
         <Platforms choice={gameQuery.platform}
           select={(platform) => setGameQuery({ ...gameQuery, platform })} />
         <SortBy choice={gameQuery.ordering}
