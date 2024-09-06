@@ -7,6 +7,7 @@ export default (gameQuery: GameQuery): Payload<Game> =>
     endpoint: 'games',
     reqConfig: {
       params: {
+        search: gameQuery.search,
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
         ordering: gameQuery.ordering

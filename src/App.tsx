@@ -21,7 +21,7 @@ function App(): JSX.Element {
     lg: '12.5rem 1fr'
   }}>
     <GridItem area='nav' marginBlockEnd='1.25rem'>
-      <Navbar />
+      <Navbar search={(search) => setGameQuery({ ...gameQuery, search })} />
     </GridItem>
 
     <Show above='lg'>

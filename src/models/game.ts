@@ -40,6 +40,7 @@ export interface Game extends BaseGame {
 }
 
 export interface GameQuery {
+  search: string;
   genre: Genre | null;
   platform: Platform | null;
   ordering: OrderingValue;
