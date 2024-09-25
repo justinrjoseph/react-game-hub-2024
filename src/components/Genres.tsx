@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Genres = ({ select, choice }: Props): JSX.Element | null => {
-  const { data, isLoading, error } = useGenres();
+  const { data: genres, isLoading, error } = useGenres();
 
   if (error) return null;
 
@@ -20,7 +20,7 @@ const Genres = ({ select, choice }: Props): JSX.Element | null => {
     <>
       <Heading fontSize='2xl' marginBlockEnd='1.25rem'>Genres</Heading>
       <List marginBlock='.625rem'>
-        {data.map((item) => {
+        {genres.results.map((item) => {
           return (
             <ListItem key={item.id} paddingBlock='.3125rem'>
               <HStack>
