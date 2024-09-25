@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Platforms = ({ select, choice }: Props): JSX.Element | null => {
-  const { data, error } = usePlatforms();
+  const { data: platforms, error } = usePlatforms();
 
   if (error) return null;
 
@@ -20,11 +20,11 @@ const Platforms = ({ select, choice }: Props): JSX.Element | null => {
         {choice?.name || 'Platforms'}
       </MenuButton>
       <MenuList>
-        {data.map((item) => {
+        {platforms?.results.map((item) => {
           return (
-          <MenuItem key={item.id} onClick={() => select(item)}>
-            {item.name}
-          </MenuItem>
+            <MenuItem key={item.id} onClick={() => select(item)}>
+              {item.name}
+            </MenuItem>
           );
         })}
       </MenuList>
