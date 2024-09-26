@@ -1,9 +1,8 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
 import platforms from '../assets/data/platforms';
-import { ApiRes } from '../models/game';
 import { Platform } from '../models/platform';
-import apiClient from '../services/api-client';
+import apiClient, { ApiRes } from '../services/api-client';
 
 import { CACHE_KEY_PLATFORMS } from './constants';
 

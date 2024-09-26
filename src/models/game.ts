@@ -25,8 +25,3 @@ export interface GameQuery {
   platform: Platform | null;
   ordering: OrderingValue;
 }
-
-export interface ApiRes<T> {
-  count: number;
-  results: T[];
-};
