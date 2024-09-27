@@ -11,7 +11,7 @@ import { GameQuery } from './models/game';
 import DynamicHeading from './components/Heading';
 
 function App(): JSX.Element {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({ pageSize: 20 } as GameQuery);
 
   return <Grid templateAreas={{
     base: `'nav' 'main'`, // mobile

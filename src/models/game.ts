@@ -24,4 +24,6 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   ordering: OrderingValue;
+  page: number;
+  pageSize: number;
 }
