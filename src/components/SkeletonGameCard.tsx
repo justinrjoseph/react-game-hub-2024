@@ -6,7 +6,7 @@ const SkeletonGameCard = (): JSX.Element => {
   return (
     <GameCardWrapper>
       <Card>
-        <Skeleton blockSize='18.75rem' />
+        <Skeleton blockSize='21rem' />
         <CardBody>
           <SkeletonText />
         </CardBody>
