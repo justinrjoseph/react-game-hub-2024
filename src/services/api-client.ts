@@ -1,8 +1,8 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export interface ApiRes<T> {
   count: number;
-  next: string | null;
+  next?: string | null;
   results: T[];
 };
 

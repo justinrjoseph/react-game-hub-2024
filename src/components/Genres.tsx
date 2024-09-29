@@ -6,10 +6,10 @@ import createCroppedImageUrl from '../services/image-url';
 
 interface Props {
   select: (genre: Genre) => void,
-  choice: Genre | null;
+  selectedGenreId?: number;
 }
 
-const Genres = ({ select, choice }: Props): JSX.Element | null => {
+const Genres = ({ select, selectedGenreId }: Props): JSX.Element | null => {
   const { data: genres, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -29,7 +29,7 @@ const Genres = ({ select, choice }: Props): JSX.Element | null => {
                   objectFit='cover'
                   src={createCroppedImageUrl(item.image_background)} />
                 <Link href='#' fontSize='lg'
-                  fontWeight={choice?.id === item.id ? 'bold' : ''}
+                  fontWeight={selectedGenreId === item.id ? 'bold' : ''}
                   onClick={() => select(item)}>
                   {item.name}
                 </Link>

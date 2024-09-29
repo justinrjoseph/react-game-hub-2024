@@ -1,4 +1,4 @@
-import { useInfiniteQuery, UseInfiniteQueryResult, useQuery, UseQueryResult } from '@tanstack/react-query';
+import { useInfiniteQuery, UseInfiniteQueryResult } from '@tanstack/react-query';
 
 import { Game, GameQuery } from '../models/game';
 import ApiClient, { ApiRes } from '../services/api-client';
@@ -28,8 +28,8 @@ export default (gameQuery: GameQuery): UseInfiniteQueryResult<ApiRes<Game>, Erro
     queryFn: ({ pageParam = 1 }) => apiClient.getAll({
         params: {
           search: gameQuery.search,
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.ordering,
           page: pageParam,
           page_size: gameQuery.pageSize
