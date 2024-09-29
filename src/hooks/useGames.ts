@@ -1,5 +1,7 @@
 import { useInfiniteQuery, UseInfiniteQueryResult } from '@tanstack/react-query';
 
+import ms from 'ms';
+
 import { Game, GameQuery } from '../models/game';
 import ApiClient, { ApiRes } from '../services/api-client';
 
@@ -35,7 +37,7 @@ export default (gameQuery: GameQuery): UseInfiniteQueryResult<ApiRes<Game>, Erro
           page_size: gameQuery.pageSize
         }
       }),
-    staleTime: 24 * 60 * 60 * 1000, // 24 hrs.
+    staleTime: ms('24h'),
     getNextPageParam: (lastPage, allPages) => {
       if (!lastPage.next) return;
 
