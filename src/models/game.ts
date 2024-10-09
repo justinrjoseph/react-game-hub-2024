@@ -20,10 +20,10 @@ export interface Genre extends BaseModel {
 }
 
 export interface GameQuery {
-  search: string;
+  search?: string;
   genreId?: number;
   platformId?: number;
-  ordering: OrderingValue;
-  page: number;
-  pageSize: number;
+  ordering?: OrderingValue;
+  page?: number;
+  pageSize?: number;
 }

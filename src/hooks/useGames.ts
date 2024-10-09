@@ -2,10 +2,11 @@ import { useInfiniteQuery, UseInfiniteQueryResult } from '@tanstack/react-query'
 
 import ms from 'ms';
 
-import { Game, GameQuery } from '../models/game';
+import { Game } from '../models/game';
 import ApiClient, { ApiRes } from '../services/api-client';
 
 import { CACHE_KEY_GAMES } from './constants';
+import useGameQueryStore from '../store';
 
 const apiClient = new ApiClient<Game>('/games');
 
@@ -24,8 +25,10 @@ const apiClient = new ApiClient<Game>('/games');
   }
 ); */
 
-export default (gameQuery: GameQuery): UseInfiniteQueryResult<ApiRes<Game>, Error> =>
-  useInfiniteQuery<ApiRes<Game>, Error, ApiRes<Game>>({
+export default (): UseInfiniteQueryResult<ApiRes<Game>, Error> => {
+  const gameQuery = useGameQueryStore(store => store.gameQuery);
+
+  return useInfiniteQuery<ApiRes<Game>, Error, ApiRes<Game>>({
     queryKey: [...CACHE_KEY_GAMES, gameQuery],
     queryFn: ({ pageParam = 1 }) => apiClient.getAll({
         params: {
@@ -43,5 +46,5 @@ export default (gameQuery: GameQuery): UseInfiniteQueryResult<ApiRes<Game>, Erro
 
       return allPages.length + 1;
     }
-  }
-);
+  });
+};
