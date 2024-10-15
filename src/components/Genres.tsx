@@ -1,10 +1,10 @@
-import { Heading, HStack, Image, Link, List, ListItem, Spinner } from '@chakra-ui/react';
+import { ComponentWithAs, Heading, HStack, Image, Link, List, ListItem, Spinner, SpinnerProps } from '@chakra-ui/react';
 
 import useGenres from '../hooks/useGenres';
 import createCroppedImageUrl from '../services/image-url';
 import useGameQueryStore from '../store';
 
-const Genres = (): JSX.Element | null => {
+const Genres = (): JSX.Element | ComponentWithAs<'div', SpinnerProps>  | null => {
   const genreId = useGameQueryStore(store => store.gameQuery.genreId);
   const setGenreId = useGameQueryStore(store => store.setGenreId);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SimpleGrid, Spinner, Text } from '@chakra-ui/react';
+import { ComponentWithAs, SimpleGrid, Spinner, Text, TextProps } from '@chakra-ui/react';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -9,7 +9,7 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import SkeletonGameCard from './SkeletonGameCard';
 
-const GameGrid = (): JSX.Element => {
+const GameGrid = (): JSX.Element | ComponentWithAs<'p', TextProps> => {
   const {
     data: games,
     error,
