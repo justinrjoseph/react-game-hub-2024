@@ -8,7 +8,7 @@ import Layout from '../pages/Layout';
 const router = createBrowserRouter([
   { path: '/', element: <Layout />, errorElement: <Error />, children: [
     { index: true, element: <Homepage /> },
-    { path: 'games/:id', element: <GameDetails /> }
+    { path: 'games/:slug', element: <GameDetails /> }
   ] }
 ]);
 

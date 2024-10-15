@@ -22,4 +22,9 @@ export default class ApiClient<T> {
     return http.get<ApiRes<T>>(this.endpoint, config)
       .then((res) => res.data)
   }
+
+  getSingle = (id: string | number): Promise<T> => {
+    return http.get<T>(`${this.endpoint}/${id}`)
+      .then((res) => res.data)
+  }
 }

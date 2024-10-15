@@ -1,5 +1,7 @@
 import { Card, CardBody, Heading, HStack, Image } from '@chakra-ui/react';
 
+import { Link } from 'react-router-dom';
+
 import { Game } from '../models/game';
 import createCroppedImageUrl from '../services/image-url';
 
@@ -24,7 +26,7 @@ const GameCard = ({ game }: Props): JSX.Element => {
             <AverageScore score={game.metacritic} />
           </HStack>
           <Heading fontSize='2xl'>
-            {game.name}
+            <Link to={`/games/${game.slug}`}>{game.name}</Link>
             <Emoji rating={game.rating_top} />
           </Heading>
         </CardBody>

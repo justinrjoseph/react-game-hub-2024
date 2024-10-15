@@ -13,6 +13,7 @@ export interface Game extends BaseModel {
   metacritic: number;
   rating_top: number;
   added: number;
+  description_raw: string;
 }
 
 export interface Genre extends BaseModel {
