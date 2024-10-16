@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
-import ApiClient, {ApiRes} from '../services/api-client';
+import ApiClient, { ApiRes } from '../services/api-client';
 
 import { Trailer } from '../models/trailer';
 
