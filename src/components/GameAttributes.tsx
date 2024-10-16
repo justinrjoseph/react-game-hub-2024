@@ -1,6 +1,6 @@
 import { SimpleGrid } from '@chakra-ui/react';
 
-import { Game } from '../models/game';
+import Game from '../models/game';
 
 import AverageScore from './AverageScore';
 import TermAndDefinitions from './TermAndDefinitions';

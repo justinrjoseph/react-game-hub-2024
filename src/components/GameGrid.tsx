@@ -9,7 +9,7 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import SkeletonGameCard from './SkeletonGameCard';
 
-const GameGrid = (): JSX.Element | ComponentWithAs<'p', TextProps> => {
+const GameGrid = (): JSX.Element => {
   const {
     data: games,
     error,

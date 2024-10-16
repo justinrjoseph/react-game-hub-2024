@@ -20,3 +20,5 @@ export const orderings: { [key in OrderingValue]: OrderingLabel } = {
   '-metacritic': 'Popularity',
   '-rating': 'Average rating'
 };
+
+export default orderings;

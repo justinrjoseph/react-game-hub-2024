@@ -1,5 +1,5 @@
 import { OrderingValue } from './ordering';
-import { Platform } from './platform';
+import Platform from './platform';
 
 interface BaseModel {
   id: number;
@@ -7,7 +7,7 @@ interface BaseModel {
   slug: string;
 }
 
-export interface Game extends BaseModel {
+interface Game extends BaseModel {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   genres: Genre[],
@@ -30,3 +30,5 @@ export interface GameQuery {
   page?: number;
   pageSize?: number;
 }
+
+export default Game;

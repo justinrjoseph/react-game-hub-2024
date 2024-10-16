@@ -6,7 +6,7 @@ import { BsGlobe } from 'react-icons/bs';
 
 import { HStack, Icon } from '@chakra-ui/react';
 
-import { Platform, PlatformSlug } from '../models/platform';
+import Platform, { PlatformSlug } from '../models/platform';
 
 interface Props {
   platforms: Platform[];
@@ -27,7 +27,7 @@ const icons = new Map<PlatformSlug, IconType>([
 const PlatformIcons = ({ platforms }: Props): JSX.Element => {
   return (
     <HStack marginBlock={1}>
-      {platforms.map(({ id, slug }) => {
+      {platforms?.map(({ id, slug }) => {
         return <Icon key={id} as={icons.get(slug)} color='gray.500' />;
       })}
     </HStack>

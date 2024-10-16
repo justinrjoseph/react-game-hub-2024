@@ -2,7 +2,7 @@ import { useInfiniteQuery, UseInfiniteQueryResult } from '@tanstack/react-query'
 
 import ms from 'ms';
 
-import { Game } from '../models/game';
+import Game from '../models/game';
 import ApiClient, { ApiRes } from '../services/api-client';
 
 import { CACHE_KEY_GAMES } from './constants';

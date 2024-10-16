@@ -24,7 +24,7 @@ export interface BasePlatform {
   slug: PlatformSlug;
 }
 
-export interface Platform extends BasePlatform {
+export default interface Platform extends BasePlatform {
   platforms: (BasePlatform & {
     games_count: number,
     image_background: `https://media.rawg.io/media/${'screenshots' | 'games'}/${string}.${'jpg' | 'jpeg'}`,

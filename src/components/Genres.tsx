@@ -4,7 +4,7 @@ import useGenres from '../hooks/useGenres';
 import createCroppedImageUrl from '../services/image-url';
 import useGameQueryStore from '../store';
 
-const Genres = (): JSX.Element | ComponentWithAs<'div', SpinnerProps>  | null => {
+const Genres = (): JSX.Element | null => {
   const genreId = useGameQueryStore(store => store.gameQuery.genreId);
   const setGenreId = useGameQueryStore(store => store.setGenreId);
 

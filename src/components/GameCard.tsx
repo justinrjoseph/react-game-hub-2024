@@ -2,7 +2,7 @@ import { Card, CardBody, Heading, HStack, Image } from '@chakra-ui/react';
 
 import { Link } from 'react-router-dom';
 
-import { Game } from '../models/game';
+import Game from '../models/game';
 import createCroppedImageUrl from '../services/image-url';
 
 import AverageScore from './AverageScore';
@@ -21,8 +21,8 @@ const GameCard = ({ game }: Props): JSX.Element => {
         <Image src={createCroppedImageUrl(game.background_image)} />
         <CardBody>
           <HStack justifyContent='space-between' marginBlockEnd='.625rem'>
-            <PlatformIcons platforms={game.parent_platforms
-              .map((item) => item.platform)} />
+            <PlatformIcons platforms={game?.parent_platforms
+              ?.map((item) => item.platform)} />
             <AverageScore score={game.metacritic} />
           </HStack>
           <Heading fontSize='2xl'>
