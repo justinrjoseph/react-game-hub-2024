@@ -11,7 +11,7 @@ interface Props {
 
 const GameAttributes = ({ game }: Props) => {
   return (
-    <SimpleGrid as='dl' columns={2} rowGap='2rem' marginBlockStart='1rem'>
+    <SimpleGrid as='dl' columns={2} rowGap='2rem' marginBlock='1rem'>
       <TermAndDefinitions term='Platforms'>
         {game.parent_platforms
           .map((item) => item.platform)

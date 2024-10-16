@@ -13,7 +13,7 @@ const http = axios.create({
   }
 });
 
-type Endpoint = 'games' | 'genres' | 'platforms/lists/parents';
+type Endpoint = 'games' | 'genres' | 'platforms/lists/parents' | `games/${string}/movies`;
 
 export default class ApiClient<T> {
   constructor(private endpoint: `/${Endpoint}`) {}
