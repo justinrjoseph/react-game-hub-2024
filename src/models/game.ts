@@ -10,6 +10,8 @@ interface BaseModel {
 export interface Game extends BaseModel {
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  genres: Genre[],
+  publishers: { name: string }[];
   metacritic: number;
   rating_top: number;
   added: number;

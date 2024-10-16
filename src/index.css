@@ -5,3 +5,7 @@ body {
 form {
   inline-size: 100%;
 }
+
+a.home {
+  min-inline-size: 3.75rem;
+}
