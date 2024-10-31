@@ -19,15 +19,15 @@ type Endpoint = 'games' |
 `games/${string}/movies` |
 `games/${string}/screenshots`;
 
-export default class ApiClient<T> {
+export default class HttpClient<T> {
   constructor(private endpoint: `/${Endpoint}`) {}
 
-  getAll = (config?: AxiosRequestConfig): Promise<ApiRes<T>> => {
+  public getAll(config?: AxiosRequestConfig): Promise<ApiRes<T>> {
     return http.get<ApiRes<T>>(this.endpoint, config)
       .then((res) => res.data)
   }
 
-  getSingle = (id: string | number): Promise<T> => {
+  public getSingle(id: string | number): Promise<T> {
     return http.get<T>(`${this.endpoint}/${id}`)
       .then((res) => res.data)
   }

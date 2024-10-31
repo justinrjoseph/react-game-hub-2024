@@ -3,12 +3,11 @@ import { useInfiniteQuery, UseInfiniteQueryResult } from '@tanstack/react-query'
 import ms from 'ms';
 
 import Game from '../models/game';
-import ApiClient, { ApiRes } from '../services/api-client';
-
-import { CACHE_KEY_GAMES } from './constants';
+import gameService from '../services/game-service';
+import { ApiRes } from '../services/http-client';
 import useGameQueryStore from '../store';
 
-const apiClient = new ApiClient<Game>('/games');
+import { CACHE_KEY_GAMES } from './constants';
 
 /* export default (gameQuery: GameQuery): UseQueryResult<ApiRes<Game>, Error> =>
   useQuery<ApiRes<Game>, Error, ApiRes<Game>>({
@@ -30,7 +29,7 @@ export default (): UseInfiniteQueryResult<ApiRes<Game>, Error> => {
 
   return useInfiniteQuery<ApiRes<Game>, Error, ApiRes<Game>>({
     queryKey: [...CACHE_KEY_GAMES, gameQuery],
-    queryFn: ({ pageParam = 1 }) => apiClient.getAll({
+    queryFn: ({ pageParam = 1 }) => gameService.getAll({
         params: {
           search: gameQuery.search,
           genres: gameQuery.genreId,
